@@ -124,10 +124,10 @@ class TestAccountService(TestCase):
         self.assertEqual(response.status_code, status.HTTP_415_UNSUPPORTED_MEDIA_TYPE)
 
     # Needed to get coverage > 95%
-    def test_405(self):        
-        """It should not allow the post method"""        
-        response1 = self.client.post()        
-        self.assertEqual(response1.status_code, status.HTTP_405_METHOD_NOT_ALLOWED) 
+    def test_405(self):
+        """It should not allow the post method"""
+        response1 = self.client.post()
+        self.assertEqual(response1.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
 
     # ADD YOUR TEST CASES HERE ...
 
@@ -163,7 +163,7 @@ class TestAccountService(TestCase):
         """It should not Update an Account that is not found"""
         resp = self.client.put(f"{BASE_URL}/0", json=None)
         self.assertEqual(resp.status_code, status.HTTP_404_NOT_FOUND)
-        
+
     def test_delete_account(self):
         """It should Delete an Account"""
         account = self._create_accounts(1)[0]
